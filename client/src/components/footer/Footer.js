@@ -9,7 +9,7 @@ const Footer = () => {
         <p className='text-light'>Subscriber our news letters now and stay up to date with <br></br>new collection the latest lookboobs and active offers.</p>
         <form>
           <div >
-            <input placeholder='Enter your Email here' className='px-4 py-2 rounded'/>
+            <input placeholder='Enter your Email here' className='px-4 py-2 rounded' />
             <button className='px-4 py-2 rounded'>Subscribe</button>
           </div>
         </form>
@@ -23,7 +23,7 @@ const Footer = () => {
         <div className='footerSocial d-flex w-100 justify-content-end pt-3'>
           <span class="material-symbols-outlined text-light">
             person_add
-          </span><span class="material-symbols-outlined text-light">
+          </span><span class="material-symbols-outlined text-light mx-5">
             person_add
           </span><span class="material-symbols-outlined text-light">
             person_add
