@@ -7,8 +7,10 @@ const CartScreen = () => {
         <>
             <Header />
 
-            <div class="container overflow-hidden text-center mt-5 pt-4 mb-4" style={{zIndex:"1"}}>
-                <div class="alert alert-warning" role="alert">
+            <div class="container overflow-hidden text-center mt-5 pt-4 mb-4">
+                <div class="py-3 rounded mb-3" style={{
+                     background: "#fae6ae"
+                }}>
                     A simple warning alert—check it out!
                 </div>
                 <div class="row gx-3">
