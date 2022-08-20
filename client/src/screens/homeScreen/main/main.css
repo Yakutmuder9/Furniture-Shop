@@ -35,16 +35,18 @@
     font-weight: 700;
 }
 
-.mainText button {
+.mainText a {
     background: rgb(57, 36, 1);
     padding: 5px 13px;
     border-radius: 12px;
     color: white;
+    text-decoration: none;
 }
 
-.mainText button:hover {
+.mainText a:hover {
     background: transparent;
     border: 2px solid rgb(57, 36, 1);
+    margin-top: -4px;
     color: rgb(57, 36, 1);
 }
 
@@ -62,7 +64,7 @@
     display: flex;
     justify-content: space-between;
     border-radius: 5px;
-    background: linear-gradient(45deg, #fff6ba, #e1cf9d);
+    /* background: linear-gradient(45deg, #fff6ba, #e1cf9d);
     box-shadow:  5px -5px 15px #d5c494,
-                 -5px 5px 15px #ffffc8;
+                 -5px 5px 15px #ffffc8; */
 }

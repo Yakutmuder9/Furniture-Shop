@@ -33,9 +33,9 @@ const Header = () => {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Login</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Sign Up</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">More..</Dropdown.Item>
+                <Dropdown.Item href="login">Login</Dropdown.Item>
+                <Dropdown.Item href="signup">Sign Up</Dropdown.Item>
+                <Dropdown.Item href="/">Log Out</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Nav>
