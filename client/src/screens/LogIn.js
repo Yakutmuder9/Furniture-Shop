@@ -1,11 +1,11 @@
 import React from 'react'
 
-const SignIn = () => {
+const Login = () => {
   return (
-    <div>
-      
+    <div className='w-100 h-100 d-flex align-items-center justify-content-center'>
+      Login
     </div>
   )
 }
 
-export default SignIn
+export default Login
