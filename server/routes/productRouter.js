@@ -14,7 +14,7 @@ productRouter.route('/')
                 res.setHeader('Content-Type', 'application/json');
                 res.json(products);
             })
-            .catch(err => next(err));
+            .catch(err => next(err) ,console.log("requrired"));
     })
     .post( (req, res, next) => {
         Product.create(req.body)
