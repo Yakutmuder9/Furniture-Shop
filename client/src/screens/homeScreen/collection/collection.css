@@ -1,0 +1,18 @@
+.collection{
+
+    width: 100%;
+    padding-top: 10vh;
+    height: auto;
+    background: #f4f2ef;
+}
+.collectionCard img{
+    width: 100%!important;
+    height: 250px;
+    margin-bottom: 20px;
+}
+.collection .material-symbols-outlined{
+    font-size: 50px;
+}
+.CollunderLine{
+    border-bottom: 5px solid rgb(57, 36, 1);
+}

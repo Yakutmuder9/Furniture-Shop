@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*,
+::after,
+::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  color: rgb(50, 32, 4);
+  font-family: "Montserrat", sans-serif;
+  list-style: none;
+}
+.App{
+  width: 100vw!important;
+  height: 100vh!important;
+  overflow-x: hidden!important;
+  background: #f4f2ef;
+}
