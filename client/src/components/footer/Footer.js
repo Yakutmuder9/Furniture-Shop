@@ -21,11 +21,11 @@ const Footer = () => {
           <p className='d-none d-md-block ps-4'>Minim veniam proident ipsum aliqua duis ex minim.<br></br> Nostrud id commodo consequat nulla velit esse ad.</p>
         </div>
         <div className='footerSocial d-flex w-100 justify-content-end pt-3'>
-          <span class="material-symbols-outlined text-light">
+          <span className="material-symbols-outlined text-light">
             person_add
-          </span><span class="material-symbols-outlined text-light mx-5">
+          </span><span className="material-symbols-outlined text-light mx-5">
             person_add
-          </span><span class="material-symbols-outlined text-light">
+          </span><span className="material-symbols-outlined text-light">
             person_add
           </span>
         </div>

@@ -13,10 +13,10 @@ const Product = () => {
           <button className='mx-2'>Other </button>
         </div>
       </div>
-      <div class="container">
-        <div class="row g-2">
-          <div class="col-12 col-md-6 col-lg-3">
-            <div class="border bg-light shadow rounded">
+      <div className="container">
+        <div className="row g-2">
+          <div className="col-12 col-md-6 col-lg-3">
+            <div className="border bg-light shadow rounded">
               <img src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNoYWlyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60' alt='' className="mb-2 p-0" />
               <div className='w-100 productDesc px-3 pb-3'>
                 <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>Chair</h4><p>Rating</p></div>

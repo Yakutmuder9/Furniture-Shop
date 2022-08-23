@@ -12,7 +12,7 @@ const Main = () => {
         <p className='pt-5'>Furniture that everyone loves</p>
         <h1 className='mainButyText'>The beauty of </h1>
         <h1 className='mainNaturalText '>natural wood. </h1>
-        <Link className='d-flex align-items-center' to="/product">Shop Now <span class="material-symbols-outlined text-light ps-1">
+        <Link className='d-flex align-items-center' to="/product">Shop Now <span className="material-symbols-outlined text-light ps-1">
           arrow_forward
         </span></Link>
       </div>

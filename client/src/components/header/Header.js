@@ -22,13 +22,13 @@ const Header = () => {
             </Nav.Link>
             <Nav.Link href="blog" >Blog</Nav.Link>
             <Nav.Link href="about" >About us</Nav.Link>
-            <Nav.Link href="cart" ><span class="material-symbols-outlined">
+            <Nav.Link href="cart" ><span className="material-symbols-outlined">
               shopping_cart
             </span></Nav.Link>
 
             <Dropdown>
               <Dropdown.Toggle variant="transparent" id="dropdown-basic">
-                <span class="material-symbols-outlined" id="collasible-nav-dropdown">
+                <span className="material-symbols-outlined" id="collasible-nav-dropdown">
                   person</span>
               </Dropdown.Toggle>
 
