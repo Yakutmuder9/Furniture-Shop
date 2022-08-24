@@ -3,21 +3,22 @@ import Footer from "../../components/footer/Footer";
 import './productScreen.css'
 import { useEffect, useState } from 'react';
 import axios from "axios";
+import Card from './Card';
 
 const ProductScreen = () => {
   let [product, setproduct] = useState([]);
 
-async function fetchData() {
+  async function fetchData() {
     let response = await axios(`products`);
     let data = await response.data;
     setproduct(data);
-    console.log(product);
+    // console.log(product.images[0].id);
   }
   useEffect(() => {
     fetchData();
-  },[]);
+  }, []);
 
-  console.log("hey")
+
   return (
     <>
       <Header />
@@ -47,10 +48,10 @@ async function fetchData() {
           <div>
             <ul className=''>
               <h4>Catagories</h4>
-              <li><input type="checkbox" id="myCheck"/> Tabel</li>
-              <li><input type="checkbox" id="myCheck"/> Chair</li>
-              <li><input type="checkbox" id="myCheck"/> Bed</li>
-              <li><input type="checkbox" id="myCheck"/> Other</li>
+              <li><input type="checkbox" id="myCheck" /> Tabel</li>
+              <li><input type="checkbox" id="myCheck" /> Chair</li>
+              <li><input type="checkbox" id="myCheck" /> Bed</li>
+              <li><input type="checkbox" id="myCheck" /> Other</li>
             </ul>
           </div>
           <div>
@@ -74,118 +75,111 @@ async function fetchData() {
         </div>
         <div className="container py-3">
           <div className="row g-4">
-          {product && product.map((item) =>{
-            return(
+          <div className="col-12 col-md-6 col-lg-4">
+              
+            </div>
+            {product && product.map((item, _id) => {
+              return (
+                <div className="col-12 col-md-6 col-lg-4" key={_id}>
+                  <div className="border bg-light shadow rounded">
+                    <img src={"./"} alt='' className="mb-2 p-0" />
+                    <div className='w-100 productDesc px-3 pb-3'>
+                      <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>{item.name}</h4><p>Rating</p></div>
+                      <p className='w-100'>Ullamco ullamco tempor culpa ad dolore  reprehenderit.</p>
+                      <div className="w-100 d-flex align-items-center justify-content-between">
+                        <h5>${item.cost}</h5>
+                        <button>Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              )
+            })}
+           
             <div className="col-12 col-md-6 col-lg-4">
               <div className="border bg-light shadow rounded">
-                <img src={item.image} alt='' className="mb-2 p-0" />
+                <img src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNoYWlyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60' alt='' className="mb-2 p-0" />
                 <div className='w-100 productDesc px-3 pb-3'>
-                  <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>{item.name}</h4><p>Rating</p></div>
+                  <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>Chair</h4><p>Rating</p></div>
                   <p className='w-100'>Ullamco ullamco tempor culpa ad dolore  reprehenderit.</p>
                   <div className="w-100 d-flex align-items-center justify-content-between">
-                    <h5>${item.cost}</h5>
+                    <h5>$180</h5>
+                    <button>Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-12 col-md-6 col-lg-4">
+              <div className="border bg-light shadow rounded">
+                <img src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNoYWlyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60' alt='' className="mb-2 p-0" />
+                <div className='w-100 productDesc px-3 pb-3'>
+                  <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>Chair</h4><p>Rating</p></div>
+                  <p className='w-100'>Ullamco ullamco tempor culpa ad dolore  reprehenderit.</p>
+                  <div className="w-100 d-flex align-items-center justify-content-between">
+                    <h5>$180</h5>
+                    <button>Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-12 col-md-6 col-lg-4">
+              <div className="border bg-light shadow rounded">
+                <img src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNoYWlyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60' alt='' className="mb-2 p-0" />
+                <div className='w-100 productDesc px-3 pb-3'>
+                  <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>Chair</h4><p>Rating</p></div>
+                  <p className='w-100'>Ullamco ullamco tempor culpa ad dolore  reprehenderit.</p>
+                  <div className="w-100 d-flex align-items-center justify-content-between">
+                    <h5>$180</h5>
+                    <button>Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-12 col-md-6 col-lg-4">
+              <div className="border bg-light shadow rounded">
+                <img src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNoYWlyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60' alt='' className="mb-2 p-0" />
+                <div className='w-100 productDesc px-3 pb-3'>
+                  <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>Chair</h4><p>Rating</p></div>
+                  <p className='w-100'>Ullamco ullamco tempor culpa ad dolore  reprehenderit.</p>
+                  <div className="w-100 d-flex align-items-center justify-content-between">
+                    <h5>$180</h5>
+                    <button>Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-12 col-md-6 col-lg-4">
+              <div className="border bg-light shadow rounded">
+                <img src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNoYWlyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60' alt='' className="mb-2 p-0" />
+                <div className='w-100 productDesc px-3 pb-3'>
+                  <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>Chair</h4><p>Rating</p></div>
+                  <p className='w-100'>Ullamco ullamco tempor culpa ad dolore  reprehenderit.</p>
+                  <div className="w-100 d-flex align-items-center justify-content-between">
+                    <h5>$180</h5>
+                    <button>Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-12 col-md-6 col-lg-4">
+              <div className="border bg-light shadow rounded">
+                <img src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNoYWlyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60' alt='' className="mb-2 p-0" />
+                <div className='w-100 productDesc px-3 pb-3'>
+                  <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>Chair</h4><p>Rating</p></div>
+                  <p className='w-100'>Ullamco ullamco tempor culpa ad dolore  reprehenderit.</p>
+                  <div className="w-100 d-flex align-items-center justify-content-between">
+                    <h5>$180</h5>
                     <button>Add to Cart</button>
                   </div>
                 </div>
               </div>
             </div>
 
-            )
-          })}
-            <div className="col-12 col-md-6 col-lg-4">
-              <div className="border bg-light shadow rounded">
-                <img src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNoYWlyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60' alt='' className="mb-2 p-0" />
-                <div className='w-100 productDesc px-3 pb-3'>
-                  <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>Chair</h4><p>Rating</p></div>
-                  <p className='w-100'>Ullamco ullamco tempor culpa ad dolore  reprehenderit.</p>
-                  <div className="w-100 d-flex align-items-center justify-content-between">
-                    <h5>$180</h5>
-                    <button>Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-md-6 col-lg-4">
-              <div className="border bg-light shadow rounded">
-                <img src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNoYWlyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60' alt='' className="mb-2 p-0" />
-                <div className='w-100 productDesc px-3 pb-3'>
-                  <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>Chair</h4><p>Rating</p></div>
-                  <p className='w-100'>Ullamco ullamco tempor culpa ad dolore  reprehenderit.</p>
-                  <div className="w-100 d-flex align-items-center justify-content-between">
-                    <h5>$180</h5>
-                    <button>Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-md-6 col-lg-4">
-              <div className="border bg-light shadow rounded">
-                <img src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNoYWlyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60' alt='' className="mb-2 p-0" />
-                <div className='w-100 productDesc px-3 pb-3'>
-                  <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>Chair</h4><p>Rating</p></div>
-                  <p className='w-100'>Ullamco ullamco tempor culpa ad dolore  reprehenderit.</p>
-                  <div className="w-100 d-flex align-items-center justify-content-between">
-                    <h5>$180</h5>
-                    <button>Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-md-6 col-lg-4">
-              <div className="border bg-light shadow rounded">
-                <img src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNoYWlyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60' alt='' className="mb-2 p-0" />
-                <div className='w-100 productDesc px-3 pb-3'>
-                  <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>Chair</h4><p>Rating</p></div>
-                  <p className='w-100'>Ullamco ullamco tempor culpa ad dolore  reprehenderit.</p>
-                  <div className="w-100 d-flex align-items-center justify-content-between">
-                    <h5>$180</h5>
-                    <button>Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-md-6 col-lg-4">
-              <div className="border bg-light shadow rounded">
-                <img src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNoYWlyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60' alt='' className="mb-2 p-0" />
-                <div className='w-100 productDesc px-3 pb-3'>
-                  <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>Chair</h4><p>Rating</p></div>
-                  <p className='w-100'>Ullamco ullamco tempor culpa ad dolore  reprehenderit.</p>
-                  <div className="w-100 d-flex align-items-center justify-content-between">
-                    <h5>$180</h5>
-                    <button>Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-md-6 col-lg-4">
-              <div className="border bg-light shadow rounded">
-                <img src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNoYWlyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60' alt='' className="mb-2 p-0" />
-                <div className='w-100 productDesc px-3 pb-3'>
-                  <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>Chair</h4><p>Rating</p></div>
-                  <p className='w-100'>Ullamco ullamco tempor culpa ad dolore  reprehenderit.</p>
-                  <div className="w-100 d-flex align-items-center justify-content-between">
-                    <h5>$180</h5>
-                    <button>Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-md-6 col-lg-4">
-              <div className="border bg-light shadow rounded">
-                <img src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNoYWlyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60' alt='' className="mb-2 p-0" />
-                <div className='w-100 productDesc px-3 pb-3'>
-                  <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>Chair</h4><p>Rating</p></div>
-                  <p className='w-100'>Ullamco ullamco tempor culpa ad dolore  reprehenderit.</p>
-                  <div className="w-100 d-flex align-items-center justify-content-between">
-                    <h5>$180</h5>
-                    <button>Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
+      <Card />
       <Footer />
 
     </>
