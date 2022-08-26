@@ -18,7 +18,7 @@ const Footer = () => {
       <div className='footerLoc d-flex w-100 px-5'>
         <div className='d-flex w-100 h-100 justify-content-center pt-3'>
           <h1 className='text-light'>Go Furniture</h1>
-          <p className='d-none d-md-block ps-4'>Minim veniam proident ipsum aliqua duis ex minim.<br></br> Nostrud id commodo consequat nulla velit esse ad.</p>
+          <p className='d-none d-md-block ps-4 text-light'>Minim veniam proident ipsum aliqua duis ex minim.<br></br> Nostrud id commodo consequat nulla velit esse ad.</p>
         </div>
         <div className='footerSocial d-flex w-100 justify-content-end pt-3'>
           <span className="material-symbols-outlined text-light">

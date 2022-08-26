@@ -32,7 +32,7 @@ const SignUp = () => {
               <input placeholder='enter password here' className='bg-transparent w-100 px-4 py-2 outline-none my-3 me-5' type="password"/>
             </div>
             <div className='px-5'>
-              <button className='btn btn-primary w-100 me-5 '>Sign Up</button>
+              <button className='btn w-100 me-5 text-light' style={{background: "#301f01"}}>Sign Up</button>
               <div className='mt-2'>Alredy user? <Link className='text-primary text-decoration-none mt-3' to="/login"> Login here</Link></div>
             </div>
           </div>

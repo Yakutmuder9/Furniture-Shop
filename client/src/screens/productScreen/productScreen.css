@@ -29,3 +29,7 @@
     justify-content: space-between;
     border-radius: 5px;
 }
+.productfilter{
+    height: auto;
+    background: rgba(254, 229, 184, 0.194);
+}

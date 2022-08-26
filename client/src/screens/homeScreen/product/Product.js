@@ -1,6 +1,22 @@
 import './product.css'
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from '../../../redux/features/productSlices';
+import Loading from "../../../components/LoadingError/Loading";
+import Message from "../../../components/LoadingError/Error"
+import { Link } from "react-router-dom";
+import Rate from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
 
 const Product = () => {
+  const dispatch = useDispatch()
+  const productList = useSelector((state) => state.getProduct);
+  const { isLoading, errMess, productsArray } = productList;
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
   return (
     <div className='product py-4 px-4'>
       <div className='productText d-flex flex-column align-items-center mb-4'>
@@ -15,19 +31,40 @@ const Product = () => {
       </div>
       <div className="container">
         <div className="row g-2">
-          <div className="col-12 col-md-6 col-lg-3">
-            <div className="border bg-light shadow rounded">
-              <img src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNoYWlyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60' alt='' className="mb-2 p-0" />
-              <div className='w-100 productDesc px-3 pb-3'>
-                <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>Chair</h4><p>Rating</p></div>
-                <p className='w-100'>Ullamco ullamco tempor culpa ad dolore  reprehenderit.</p>
-                <div className="w-100 d-flex align-items-center justify-content-between">
-                  <h5>$180</h5>
-                  <button>Add to Cart</button>
-                </div>
-              </div>
+          {isLoading ? (
+            <div className="mb-5">
+              <Loading />
             </div>
-          </div>
+          ) : errMess ? (
+            <Message variant="alert-danger">{errMess}</Message>
+          ) : (
+            <>
+              {productsArray && productsArray.slice(0, 4).map((item, _id) => {
+                return (
+                  <div className="col-12 col-md-6 col-lg-3">
+                    <div className="border bg-light shadow rounded">
+
+                      <Link to={`/product`}>
+                        <img src={item.images[0].image} alt='' className="mb-2 p-0" />
+                      </Link>
+                      <div className='w-100 productDesc px-3 pb-3'>
+                        <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>Chair</h4>
+                          <Stack spacing={1} className="ms-1">
+                            <Rate name="size-medium" defaultValue={item.rating} />
+                          </Stack></div>
+                        <p className='w-100'>Ullamco ullamco tempor culpa ad dolore  reprehenderit.</p>
+                        <div className="w-100 d-flex align-items-center justify-content-between">
+                          <h5>$180</h5>
+                          <button>Add to Cart</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
+            </>
+          )}
+
         </div>
       </div>
     </div>
