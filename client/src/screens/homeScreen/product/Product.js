@@ -1,21 +1,21 @@
 import './product.css'
-// import { useEffect } from 'react';
-// import { useDispatch, useSelector } from "react-redux";
-// import { fetchProducts } from '../../../redux/features/productSlices';
-// import Loading from "../../../components/LoadingError/Loading";
-// import Message from "../../../components/LoadingError/Error"
-// import { Link } from "react-router-dom";
-// import Rate from '@mui/material/Rating';
-// import Stack from '@mui/material/Stack';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from '../../../redux/features/productSlices';
+import Loading from "../../../components/LoadingError/Loading";
+import Message from "../../../components/LoadingError/Error"
+import { Link } from "react-router-dom";
+import Rate from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
 
 const Product = () => {
-  // const dispatch = useDispatch()
-  // const productList = useSelector((state) => state.getProduct);
-  // const { isLoading, errMess, productsArray } = productList;
+  const dispatch = useDispatch()
+  const productList = useSelector((state) => state.getProduct);
+  const { isLoading, errMess, productsArray } = productList;
 
-  // useEffect(() => {
-  //   dispatch(fetchProducts());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   return (
     <div className='product py-4 px-4'>
@@ -31,7 +31,7 @@ const Product = () => {
       </div>
       <div className="container">
         <div className="row g-2">
-          {/* {isLoading ? (
+          {isLoading ? (
             <div className="mb-5">
               <Loading />
             </div>
@@ -63,7 +63,7 @@ const Product = () => {
                 )
               })}
             </>
-          )} */}
+          )}
 
         </div>
       </div>
