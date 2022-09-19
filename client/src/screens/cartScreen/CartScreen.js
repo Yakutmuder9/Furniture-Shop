@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import './cart.css'
 import Header from '../../components/header/Header'
 import Footer from "../../components/footer/Footer";
@@ -11,15 +11,23 @@ import {
     getTotals,
     removeFromCart,
 } from "../../redux/features/CartSlice";
-
 import { Link, useNavigate } from "react-router-dom";
+import StripeCheckout from "react-stripe-checkout";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { getOrderDetail } from "../../redux/features/OrderSlice"
 
 const CartScreen = () => {
     const cart = useSelector((state) => state.getCart);
-    // const user = useSelector((state) => state.auth);
+    const user = useSelector((state) => state.auth);
     const dispatch = useDispatch();
     const { cartItems } = cart
-    
+    const [product] = useState({
+        name: "Go Furniture",
+        price: 64998.67,
+        description: "Cool car"
+    });
+
     useEffect(() => {
         dispatch(getTotals());
     }, [cart, dispatch]);
@@ -37,19 +45,23 @@ const CartScreen = () => {
         dispatch(clearCart());
     };
 
-    const handleCheckout = () => {
-        axios
-            .post(`/stripe`, {
-                cartItems,
-                // userId: user._id,
-            })
-            .then((response) => {
-                if (response.data.url) {
-                    window.location.href = response.data.url;
-                }
-            })
-            .catch((err) => console.log(err.message));
-    };
+
+    async function handleToken(token, addresses) {
+        const response = await axios.post(
+            "/checkout",
+            { token, addresses, product }
+        );
+        const { status } = response.data;
+
+        console.log("Response:", response.data);
+        if (status === "success") {
+            dispatch(getOrderDetail(addresses))
+            toast("Success! Check email for details", { type: "success" });
+        } else {
+            toast("Something went wrong", { type: "error" });
+        }
+    }
+
     return (
         <>
             <Header /> <div className="py-3 rounded mb-3" style={{
@@ -94,7 +106,7 @@ const CartScreen = () => {
                                 cart.cartItems.map((cartItem, id) => (
                                     <div className="cart-item" key={id}>
                                         <div className="cart-product">
-                                            <img src={cartItem.images[0].image} alt={cartItem.name} style={{ width: "50%" , height: "100%" }} />
+                                            <img src={cartItem.images[0].image} alt={cartItem.name} style={{ width: "50%", height: "100%" }} />
                                             <div>
                                                 <h5 className="bolder">{cartItem.name}</h5>
                                                 <p>{cartItem.description}</p>
@@ -127,7 +139,16 @@ const CartScreen = () => {
                                     <span className="amount">${cart.cartTotalAmount}</span>
                                 </div>
                                 <p>Taxes and shipping calculated at checkout</p>
-                                <button className="btn btn-success">Check out</button>
+
+                                <StripeCheckout
+                                    stripeKey="pk_test_51LM4lLLB8jsObGMGWAL8jVUisigDNFsIMOUla1M2EEMhdd3RrPS3nthbuJCnwchdKz4OoSPKEUC1HuFwnMDosmYu00rl1S1hDq"
+                                    token={handleToken}
+                                    amount={cart.cartTotalAmount * 100}
+                                    name="Furniture"
+                                    billingAddress
+                                    shippingAddress
+                                    className="btn btn-success p-0 m-0 w-100"
+                                />
                                 <div className="continue-shopping">
                                     <Link to="/product">
                                         <svg
@@ -151,6 +172,7 @@ const CartScreen = () => {
                     </div>
                 )}
             </div>
+            <ToastContainer />
             <Footer />
         </>
 
