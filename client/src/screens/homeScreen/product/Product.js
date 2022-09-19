@@ -31,7 +31,7 @@ const Product = () => {
       </div>
       <div className="container">
         <div className="row g-2">
-          {isLoading ? (
+          {/* {isLoading ? (
             <div className="mb-5">
               <Loading />
             </div>
@@ -63,7 +63,7 @@ const Product = () => {
                 )
               })}
             </>
-          )}
+          )} */}
 
         </div>
       </div>
