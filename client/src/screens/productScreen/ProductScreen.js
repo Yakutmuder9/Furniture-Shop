@@ -26,6 +26,8 @@ const ProductScreen = () => {
     notify()
     dispatch(addToCart(course));
   };
+  console.log("test")
+  console.log(productsArray)
   return (
     <>
       <Header />
@@ -91,7 +93,7 @@ const ProductScreen = () => {
               <Message variant="alert-danger">{errMess}</Message>
             ) : (
               <>
-              pro screen{productsArray.images[0].image}
+              pro screen
                 {/* {productsArray && productsArray.map((item, _id) => {
                   return (
                     <div className="col-12 col-md-6 col-lg-4" key={_id}>
