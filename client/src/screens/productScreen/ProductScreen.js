@@ -1,7 +1,7 @@
 import Header from '../../components/header/Header'
 import Footer from "../../components/footer/Footer";
 import './productScreen.css'
-import { useEffect } from 'react';
+import { useState,useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from '../../redux/features/productSlices';
 import Loading from "../../components/LoadingError/Loading";
@@ -13,6 +13,24 @@ import { ToastContainer, toast } from 'react-toastify';
 import { addToCart } from "../../redux/features/CartSlice";
 
 const ProductScreen = () => {
+  const [prod, setProd] = useState('')
+  
+  async function fetchText() {
+  let response = await fetch('https://furniture-shop-backend.herokuapp.com/product');
+
+  console.log(response.status); // 200
+  console.log(response.statusText); // OK
+
+  if (response.status === 200) {
+      let data = await response.json();
+      console.log(data)
+      setProd(data)
+  }
+}
+useEffect(()=>{
+fetchText()
+},[])
+
   const dispatch = useDispatch()
   const productList = useSelector((state) => state.getProduct);
   const { isLoading, errMess, productsArray } = productList;
@@ -26,8 +44,7 @@ const ProductScreen = () => {
     notify()
     dispatch(addToCart(course));
   };
-  console.log("test")
-  console.log(productsArray)
+  
   return (
     <>
       <Header />
@@ -94,7 +111,7 @@ const ProductScreen = () => {
             ) : (
               <>
               
-                {productsArray && productsArray.map((item, _id) => {
+                {prod && prod.map((item, _id) => {
                   return (
                     <div className="col-12 col-md-6 col-lg-4" key={_id}>
                       <div className="border bg-light shadow rounded  pb-0" style={{ height: "500px" }}>
