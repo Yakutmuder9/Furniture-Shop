@@ -16,8 +16,10 @@ const Product = () => {
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
+
  console.log(productsArray)
-  return (
+  
+ return (
     <div className='product py-4 px-4'>
       <div className='productText d-flex flex-column align-items-center mb-4'>
         <h1 className='mt-2 mb-3'>Our <span className="underline">Prod</span><span>ucts</span></h1>
