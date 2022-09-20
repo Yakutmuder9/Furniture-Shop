@@ -12,7 +12,7 @@ import Rate from '@mui/material/Rating';
 import { useDispatch } from "react-redux";
 import Stack from '@mui/material/Stack';
 import { addToCart } from "../../redux/features/CartSlice";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ProductDetailScreen = () => {
   const [product, setProduct] = useState('');
@@ -29,17 +29,32 @@ const ProductDetailScreen = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const { data } = await axios.get(`/product/${productId}`);
-        setProduct(data)
-        setImgOne(data.images[0].image)
-        setImgTwo(data.images[1].image)
-        setImgThree(data.images[2].image)
-        setImgFour(data.images[4].image)
+        let response = await fetch(`https://furniture-shop-backend.herokuapp.com/product/${productId}`);
+        if (response.status === 200) {
+          let data = await response.json();
+          setProduct(data)
+          setImgOne(data.images[0].image)
+          setImgTwo(data.images[1].image)
+          setImgThree(data.images[2].image)
+          setImgFour(data.images[4].image)
+        }
       } catch (error) {
         setError(error);
       } finally {
         setLoading(false);
       }
+      // try {
+      //   const { data } = await axios.get(`/product/${productId}`);
+      //   setProduct(data)
+      //   setImgOne(data.images[0].image)
+      //   setImgTwo(data.images[1].image)
+      //   setImgThree(data.images[2].image)
+      //   setImgFour(data.images[4].image)
+      // } catch (error) {
+      //   setError(error);
+      // } finally {
+      //   setLoading(false);
+      // }
     };
     getProduct();
   }, []);
@@ -68,8 +83,8 @@ const ProductDetailScreen = () => {
             <Message variant="alert-danger">{errMess}</Message>
           ) : (
             <>
-            new
-              {/* <div className='col-12 col-md-5 p-0' style={{ height: "500px", marginBottom: "100px" }}>
+              new
+              <div className='col-12 col-md-5 p-0' style={{ height: "500px", marginBottom: "100px" }}>
                 <div className="bg-primary w-100" style={{ height: "300px" }}>
                   <img src={`/${ImgOne}`} className="w-100 h-100" />
                 </div>
@@ -121,11 +136,11 @@ const ProductDetailScreen = () => {
                 <h5>Quantity</h5>
                 <input type="checkbox" id="myCheck" />
                 <div className='d-flex'>
-                  <button className='btn me-4 text-light' onClick={() => handleAddToCart(product)} style={{background: "#301f01"}}>Add to Cart</button>
+                  <button className='btn me-4 text-light' onClick={() => handleAddToCart(product)} style={{ background: "#301f01" }}>Add to Cart</button>
                   <ToastContainer />
-                  <Link to="/product" className='btn ' style={{border: "2px solid #301f01"}}>Shop Now</Link>
+                  <Link to="/product" className='btn ' style={{ border: "2px solid #301f01" }}>Shop Now</Link>
                 </div>
-              </div> */}
+              </div>
             </>
           )}
 
@@ -141,7 +156,7 @@ const ProductDetailScreen = () => {
               <h5>Lamp</h5>
               <div className='d-flex'>
                 <Stack spacing={1} className="ms-1">
-                  {/* <Rate name="size-medium" defaultValue={product.rating} size="large" /> */}
+                  <Rate name="size-medium" defaultValue={product.rating} size="large" />
                 </Stack>
               </div>
               <p>Gupidatat velit veniam cupidatat enim proident duis adipisicing ullamco.</p>
@@ -151,7 +166,7 @@ const ProductDetailScreen = () => {
               <h5>Lamp</h5>
               <div className='d-flex'>
                 <Stack spacing={1} className="ms-1">
-                  {/* <Rate name="size-medium" defaultValue={product.rating} size="large" /> */}
+                  <Rate name="size-medium" defaultValue={product.rating} size="large" />
                 </Stack>
               </div>
               <p>Gupidatat velit veniam cupidatat enim proident duis adipisicing ullamco.</p>
@@ -161,7 +176,7 @@ const ProductDetailScreen = () => {
               <h5>Chair</h5>
               <div className='d-flex'>
                 <Stack spacing={1} className="ms-1">
-                  {/* <Rate name="size-medium" defaultValue={product.rating} size="large" /> */}
+                  <Rate name="size-medium" defaultValue={product.rating} size="large" />
                 </Stack>
               </div>
               <p>Gupidatat velit veniam cupidatat enim proident duis adipisicing ullamco.</p>
@@ -170,9 +185,9 @@ const ProductDetailScreen = () => {
               <img src='https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZnVybml0dXJlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1400&q=60' className='w-100' />
               <h5>Chair</h5>
               <div className='d-flex'>
-                      <Stack spacing={1} className="ms-1">
-                        {/* <Rate name="size-medium" defaultValue={product.rating} size="large" /> */}
-                      </Stack>
+                <Stack spacing={1} className="ms-1">
+                  <Rate name="size-medium" defaultValue={product.rating} size="large" />
+                </Stack>
               </div>
               <p>Gupidatat velit veniam cupidatat enim proident duis adipisicing ullamco.</p>
             </div>
