@@ -26,9 +26,7 @@ const ProductScreen = () => {
     notify()
     dispatch(addToCart(course));
   };
-
-  
-  console.log("check")
+  console.log("test")
   console.log(productsArray)
   return (
     <>
