@@ -83,7 +83,6 @@ const ProductDetailScreen = () => {
             <Message variant="alert-danger">{errMess}</Message>
           ) : (
             <>
-              new
               <div className='col-12 col-md-5 p-0' style={{ height: "500px", marginBottom: "100px" }}>
                 <div className="bg-primary w-100" style={{ height: "300px" }}>
                   <img src={`/${ImgOne}`} className="w-100 h-100" />
