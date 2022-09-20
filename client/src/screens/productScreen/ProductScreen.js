@@ -92,30 +92,30 @@ const ProductScreen = () => {
             ) : (
               <>
                 {productsArray && productsArray.map((item, _id) => {
-                  return (
-                    <div className="col-12 col-md-6 col-lg-4" key={_id}>
-                      <div className="border bg-light shadow rounded  pb-0" style={{ height: "500px" }}>
-                        <Link to={`/product/${item._id}`}>
-                          {/* <img src={item.images[0].image} alt='' className="mb-2 p-0" style={{ height: "250px" }} /> */}
-                        </Link>
+                  return (<>name of the</>
+                    // <div className="col-12 col-md-6 col-lg-4" key={_id}>
+                    //   <div className="border bg-light shadow rounded  pb-0" style={{ height: "500px" }}>
+                    //     <Link to={`/product/${item._id}`}>
+                    //       <img src={item.images[0].image} alt='' className="mb-2 p-0" style={{ height: "250px" }} />
+                    //     </Link>
 
 
-                        <div className='w-100  productDesc px-3 d-flex flex-column justify-content-between' style={{ height: "220px" }}>
-                          <div className='productName w-100 d-flex justify-content-between'>
-                            <h5>{item.name}</h5>
-                            <Stack spacing={1} className="ms-1">
-                              <Rate name="size-medium" defaultValue={item.rating} />
-                            </Stack>
-                          </div>
-                          <p className='w-100'>Ullamco ullamco tempor culpa ad dolore  reprehenderit.</p>
-                          <div className="w-100 d-flex align-items-center justify-content-between">
-                            <h5>${item.price}.00</h5>
-                            <button onClick={() => handleAddToCart(item)}>Add to Cart</button>
-                          </div>
-                        </div>
-                                <ToastContainer />
-                      </div>
-                    </div>
+                    //     <div className='w-100  productDesc px-3 d-flex flex-column justify-content-between' style={{ height: "220px" }}>
+                    //       <div className='productName w-100 d-flex justify-content-between'>
+                    //         <h5>{item.name}</h5>
+                    //         <Stack spacing={1} className="ms-1">
+                    //           <Rate name="size-medium" defaultValue={item.rating} />
+                    //         </Stack>
+                    //       </div>
+                    //       <p className='w-100'>Ullamco ullamco tempor culpa ad dolore  reprehenderit.</p>
+                    //       <div className="w-100 d-flex align-items-center justify-content-between">
+                    //         <h5>${item.price}.00</h5>
+                    //         <button onClick={() => handleAddToCart(item)}>Add to Cart</button>
+                    //       </div>
+                    //     </div>
+                    //             <ToastContainer />
+                    //   </div>
+                    // </div>
                   )
                 })}
               </>
