@@ -93,8 +93,8 @@ const ProductScreen = () => {
               <Message variant="alert-danger">{errMess}</Message>
             ) : (
               <>
-              pro screen
-                {/* {productsArray && productsArray.map((item, _id) => {
+              
+                {productsArray && productsArray.map((item, _id) => {
                   return (
                     <div className="col-12 col-md-6 col-lg-4" key={_id}>
                       <div className="border bg-light shadow rounded  pb-0" style={{ height: "500px" }}>
@@ -120,7 +120,7 @@ const ProductScreen = () => {
                       </div>
                     </div>
                   )
-                })} */}
+                })}
               </>
             )}
           </div>

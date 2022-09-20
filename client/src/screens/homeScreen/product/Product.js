@@ -16,7 +16,7 @@ const Product = () => {
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
-  console.log("test")
+  console.log("check")
   console.log(productsArray)
 
   
