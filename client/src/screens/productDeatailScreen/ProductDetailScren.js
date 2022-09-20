@@ -68,7 +68,8 @@ const ProductDetailScreen = () => {
             <Message variant="alert-danger">{errMess}</Message>
           ) : (
             <>
-              <div className='col-12 col-md-5 p-0' style={{ height: "500px", marginBottom: "100px" }}>
+            new
+              {/* <div className='col-12 col-md-5 p-0' style={{ height: "500px", marginBottom: "100px" }}>
                 <div className="bg-primary w-100" style={{ height: "300px" }}>
                   <img src={`/${ImgOne}`} className="w-100 h-100" />
                 </div>
@@ -124,7 +125,7 @@ const ProductDetailScreen = () => {
                   <ToastContainer />
                   <Link to="/product" className='btn ' style={{border: "2px solid #301f01"}}>Shop Now</Link>
                 </div>
-              </div>
+              </div> */}
             </>
           )}
 
