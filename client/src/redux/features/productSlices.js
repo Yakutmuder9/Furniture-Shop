@@ -6,25 +6,11 @@ export const fetchProducts = createAsyncThunk(
   async () => {
     // const { data } = await axios.get(`product`)
     // return data
-
-    try {
-      const res = await axios.get('product');
-      const data = res.data;
-      console.log(data);
+    let response = await fetch('https://furniture-shop-backend.herokuapp.com/product');
+    if (response.status === 200) {
+      let data = await response.json();
       return data
-    } catch (err) {
-      if (err.response) {
-        console.log(err.message);
-        console.log(err.response.data); 
-      }
     }
-
-
-  //   let response = await fetch('https://furniture-shop-backend.herokuapp.com/product');
-  //   if (response.status === 200) {
-  //     let data = await response.json();
-  //     return data
-  //   }
   }
 );
 
