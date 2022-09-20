@@ -91,13 +91,13 @@ const ProductScreen = () => {
               <Message variant="alert-danger">{errMess}</Message>
             ) : (
               <>
-              not work
-                {/* {productsArray && productsArray.map((item, _id) => {
+              not work{productsArray[0].images[0].image}
+                {productsArray && productsArray.map((item, _id) => {
                   return (
                     <div className="col-12 col-md-6 col-lg-4" key={_id}>
                       <div className="border bg-light shadow rounded  pb-0" style={{ height: "500px" }}>
                         <Link to={`/product/${item._id}`}>
-                          <img src={item.images[0].image} alt='' className="mb-2 p-0" style={{ height: "250px" }} />
+                          {/* <img src={item.images[0].image} alt='' className="mb-2 p-0" style={{ height: "250px" }} /> */}
                         </Link>
 
 
@@ -118,7 +118,7 @@ const ProductScreen = () => {
                       </div>
                     </div>
                   )
-                })} */}
+                })}
               </>
             )}
           </div>
