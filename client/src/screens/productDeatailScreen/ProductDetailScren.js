@@ -141,7 +141,7 @@ const ProductDetailScreen = () => {
               <h5>Lamp</h5>
               <div className='d-flex'>
                 <Stack spacing={1} className="ms-1">
-                  <Rate name="size-medium" defaultValue={product.rating} size="large" />
+                  {/* <Rate name="size-medium" defaultValue={product.rating} size="large" /> */}
                 </Stack>
               </div>
               <p>Gupidatat velit veniam cupidatat enim proident duis adipisicing ullamco.</p>
@@ -151,7 +151,7 @@ const ProductDetailScreen = () => {
               <h5>Lamp</h5>
               <div className='d-flex'>
                 <Stack spacing={1} className="ms-1">
-                  <Rate name="size-medium" defaultValue={product.rating} size="large" />
+                  {/* <Rate name="size-medium" defaultValue={product.rating} size="large" /> */}
                 </Stack>
               </div>
               <p>Gupidatat velit veniam cupidatat enim proident duis adipisicing ullamco.</p>
@@ -161,7 +161,7 @@ const ProductDetailScreen = () => {
               <h5>Chair</h5>
               <div className='d-flex'>
                 <Stack spacing={1} className="ms-1">
-                  <Rate name="size-medium" defaultValue={product.rating} size="large" />
+                  {/* <Rate name="size-medium" defaultValue={product.rating} size="large" /> */}
                 </Stack>
               </div>
               <p>Gupidatat velit veniam cupidatat enim proident duis adipisicing ullamco.</p>
@@ -171,7 +171,7 @@ const ProductDetailScreen = () => {
               <h5>Chair</h5>
               <div className='d-flex'>
                       <Stack spacing={1} className="ms-1">
-                        <Rate name="size-medium" defaultValue={product.rating} size="large" />
+                        {/* <Rate name="size-medium" defaultValue={product.rating} size="large" /> */}
                       </Stack>
               </div>
               <p>Gupidatat velit veniam cupidatat enim proident duis adipisicing ullamco.</p>
