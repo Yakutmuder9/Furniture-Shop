@@ -1,5 +1,5 @@
 const express =require("express") ;
-const Order =require("./../Models/OrderModel.js");
+const Order =require("../models/OrderModel");
 const cors = require('./cors');
 
 const orderRouter = express.Router();

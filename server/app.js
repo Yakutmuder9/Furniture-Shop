@@ -50,6 +50,7 @@ app.use("/users", usersRouter);
 
 app.use(express.static(path.join(__dirname, "public")));
 
+// routes
 // app.use('/file', fileRoutes.routes);
 app.use("/product", productRouter);
 
