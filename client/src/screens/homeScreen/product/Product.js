@@ -40,14 +40,13 @@ const Product = () => {
             <Message variant="alert-danger">{errMess}</Message>
           ) : (
             <>
-            why{productsArray}
-              {/* {productsArray && productsArray.slice(0, 4).map((item, _id) => {
+              {productsArray && productsArray.slice(0, 4).map((item, _id) => {
                 return (
                   <div className="col-12 col-md-6 col-lg-3">
                     <div className="border bg-light shadow rounded">
 
                       <Link to={`/product`}>
-                        <img src={item.images[0].image} alt='' className="mb-2 p-0" />
+                        {/* <img src={item.images[0].image} alt='' className="mb-2 p-0" /> */}
                       </Link>
                       <div className='w-100 productDesc px-3 pb-3'>
                         <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>Chair</h4>
@@ -63,7 +62,7 @@ const Product = () => {
                     </div>
                   </div>
                 )
-              })} */}
+              })}
             </>
           )}
 
