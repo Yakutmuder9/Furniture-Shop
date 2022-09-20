@@ -1,6 +1,6 @@
 const cors = require('cors');
 
-const whitelist = ['https://furniture-shop-backend.herokuapp.com', 'https://localhost:3443'];
+const whitelist = ['http://localhost:5000', 'https://go-furniture.netlify.app'];
 const corsOptionsDelegate = (req, callback) => {
     let corsOptions;
     console.log(req.header('Origin'));
