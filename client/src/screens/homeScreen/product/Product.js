@@ -41,26 +41,26 @@ const Product = () => {
           ) : (
             <>
               {productsArray && productsArray.slice(0, 4).map((item, _id) => {
-                return (<>product.js</>
-                  // <div className="col-12 col-md-6 col-lg-3">
-                  //   <div className="border bg-light shadow rounded">
+                return (
+                  <div className="col-12 col-md-6 col-lg-3">
+                    <div className="border bg-light shadow rounded">
 
-                  //     <Link to={`/product`}>
-                  //       <img src={item.images[0].image} alt='' className="mb-2 p-0" />
-                  //     </Link>
-                  //     <div className='w-100 productDesc px-3 pb-3'>
-                  //       <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>Chair</h4>
-                  //         <Stack spacing={1} className="ms-1">
-                  //           <Rate name="size-medium" defaultValue={item.rating} />
-                  //         </Stack></div>
-                  //       <p className='w-100'>Ullamco ullamco tempor culpa ad dolore  reprehenderit.</p>
-                  //       <div className="w-100 d-flex align-items-center justify-content-between">
-                  //         <h5>$180</h5>
-                  //         <button>Add to Cart</button>
-                  //       </div>
-                  //     </div>
-                  //   </div>
-                  // </div>
+                      <Link to={`/product`}>
+                        <img src={item.images[0].image} alt='' className="mb-2 p-0" />
+                      </Link>
+                      <div className='w-100 productDesc px-3 pb-3'>
+                        <div className='productName w-100 d-flex align-items-center justify-content-between'><h4>Chair</h4>
+                          <Stack spacing={1} className="ms-1">
+                            <Rate name="size-medium" defaultValue={item.rating} />
+                          </Stack></div>
+                        <p className='w-100'>Ullamco ullamco tempor culpa ad dolore  reprehenderit.</p>
+                        <div className="w-100 d-flex align-items-center justify-content-between">
+                          <h5>$180</h5>
+                          <button>Add to Cart</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 )
               })}
             </>
