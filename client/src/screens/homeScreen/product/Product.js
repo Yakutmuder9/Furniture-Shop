@@ -17,7 +17,6 @@ const Product = () => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
- console.log(productsArray)
   
  return (
     <div className='product py-4 px-4'>
@@ -41,7 +40,7 @@ const Product = () => {
             <Message variant="alert-danger">{errMess}</Message>
           ) : (
             <>
-              {/* {productsArray && productsArray.slice(0, 4).map((item, _id) => {
+              {productsArray && productsArray.slice(0, 4).map((item, _id) => {
                 return (
                   <div className="col-12 col-md-6 col-lg-3">
                     <div className="border bg-light shadow rounded">
@@ -63,7 +62,7 @@ const Product = () => {
                     </div>
                   </div>
                 )
-              })} */}
+              })}
             </>
           )}
 
