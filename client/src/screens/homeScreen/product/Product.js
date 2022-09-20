@@ -1,5 +1,5 @@
 import './product.css'
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from '../../../redux/features/productSlices';
 import Loading from "../../../components/LoadingError/Loading";
@@ -8,7 +8,30 @@ import { Link } from "react-router-dom";
 import Rate from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 
+
+
+
 const Product = () => {
+  
+  const [prod, setProd] = useState('')
+  
+  async function fetchText() {
+    let response = await fetch('https://furniture-shop-backend.herokuapp.com/product');
+
+    console.log(response.status); // 200
+    console.log(response.statusText); // OK
+
+    if (response.status === 200) {
+        let data = await response.json();
+        console.log(data)
+        setProd(data)
+    }
+}
+useEffect(()=>{
+  fetchText()
+},[])
+
+
   const dispatch = useDispatch()
   const productList = useSelector((state) => state.getProduct);
   const { isLoading, errMess, productsArray } = productList;
@@ -18,6 +41,8 @@ const Product = () => {
   }, [dispatch]);
   console.log("check")
   console.log(productsArray)
+
+
 
   
  return (
@@ -43,7 +68,7 @@ const Product = () => {
           ) : (
             <>
             
-              {productsArray && productsArray.slice(0, 4).map((item, _id) => {
+              {prod && prod.slice(0, 4).map((item, _id) => {
                 return (
                   <div className="col-12 col-md-6 col-lg-3">
                     <div className="border bg-light shadow rounded">
