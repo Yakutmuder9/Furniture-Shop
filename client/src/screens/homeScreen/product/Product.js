@@ -16,7 +16,7 @@ const Product = () => {
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
-
+ console.log(productsArray)
   return (
     <div className='product py-4 px-4'>
       <div className='productText d-flex flex-column align-items-center mb-4'>
