@@ -8,7 +8,7 @@ export const fetchSingleProducts = createAsyncThunk(
     const id = url.substring(url.lastIndexOf('/') + 1);
     // const { data } = await axios.get(`${id}`)
     // return data
-    let response = await fetch(`https://furniture-shop-backend.herokuapp.com/${id}`);
+    let response = await fetch(`https://furniture-shop-backend.onrender.com/products/${id}`);
     if (response.status === 200) {
       let data = await response.json();
       return data
