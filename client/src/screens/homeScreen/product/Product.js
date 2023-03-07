@@ -16,14 +16,10 @@ const Product = () => {
   const [prod, setProd] = useState('')
   
   async function fetchText() {
-    let response = await fetch('https://furniture-shop-backend.herokuapp.com/product');
-
-    console.log(response.status); // 200
-    console.log(response.statusText); // OK
+    let response = await fetch('https://furniture-shop-backend.onrender.com/products');
 
     if (response.status === 200) {
         let data = await response.json();
-        console.log(data)
         setProd(data)
     }
 }
@@ -39,8 +35,6 @@ useEffect(()=>{
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
-  console.log("check")
-  console.log(productsArray)
 
 
 
@@ -68,9 +62,9 @@ useEffect(()=>{
           ) : (
             <>
             
-              {prod && prod.slice(0, 4).map((item, _id) => {
+              {Array.isArray(prod) && prod.slice(0, 4).map((item) => {
                 return (
-                  <div className="col-12 col-md-6 col-lg-3">
+                  <div className="col-12 col-md-6 col-lg-3" key={item._id}>
                     <div className="border bg-light shadow rounded">
 
                       <Link to={`/product`}>

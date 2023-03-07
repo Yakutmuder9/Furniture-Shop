@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// const apiUrl = 'https://furniture-shop-backend.herokuapp.com/api/';
 const apiUrl = 'https://furniture-shop-backend.onrender.com/';
 
 export const singleFileUpload = async (data, options) => {

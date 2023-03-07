@@ -4,7 +4,6 @@ import Footer from "../../components/footer/Footer";
 import './productDetail.css'
 import { useLocation } from "react-router";
 import Message from "../../components/LoadingError/Error";
-import axios from "axios";
 import Loading from "../../components/LoadingError/Loading";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
@@ -29,7 +28,7 @@ const ProductDetailScreen = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        let response = await fetch(`https://furniture-shop-backend.herokuapp.com/product/${productId}`);
+        let response = await fetch(`https://furniture-shop-backend.onrender.com/products/${productId}`);
         if (response.status === 200) {
           let data = await response.json();
           setProduct(data)
@@ -43,18 +42,6 @@ const ProductDetailScreen = () => {
       } finally {
         setLoading(false);
       }
-      // try {
-      //   const { data } = await axios.get(`/product/${productId}`);
-      //   setProduct(data)
-      //   setImgOne(data.images[0].image)
-      //   setImgTwo(data.images[1].image)
-      //   setImgThree(data.images[2].image)
-      //   setImgFour(data.images[4].image)
-      // } catch (error) {
-      //   setError(error);
-      // } finally {
-      //   setLoading(false);
-      // }
     };
     getProduct();
   }, []);

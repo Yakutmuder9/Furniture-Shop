@@ -13,21 +13,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import { addToCart } from "../../redux/features/CartSlice";
 
 const ProductScreen = () => {
-//   const [prod, setProd] = useState('')
-  
-//   async function fetchText() {
-//   let response = await fetch('https://furniture-shop-backend.herokuapp.com/product');
-
-
-//   if (response.status === 200) {
-//       let data = await response.json();
-//       console.log(data)
-//       setProd(data)
-//   }
-// }
-// useEffect(()=>{
-// fetchText()
-// },[])
 
   const dispatch = useDispatch()
   const productList = useSelector((state) => state.getProduct);
@@ -109,12 +94,12 @@ const ProductScreen = () => {
             ) : (
               <>
               
-                {productsArray && productsArray.map((item, _id) => {
+                {Array.isArray(productsArray) && productsArray.map((item) => {
                   return (
-                    <div className="col-12 col-md-6 col-lg-4" key={_id}>
+                    <div className="col-12 col-md-6 col-lg-4" key={item._id}>
                       <div className="border bg-light shadow rounded  pb-0" style={{ height: "500px" }}>
                         <Link to={`/product/${item._id}`}>
-                          <img src={item.images[0].image} alt='' className="mb-2 p-0" style={{ height: "250px" }} />
+                          <img src={item?.images[0]?.image} alt='' className="mb-2 p-0" style={{ height: "250px" }} />
                         </Link>
 
 

@@ -1,11 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 
 export const fetchProducts = createAsyncThunk(
   "product/fetchProducts",
   async () => {
-    // const { data } = await axios.get(`product`)
-    // return data
     let response = await fetch('https://furniture-shop-backend.onrender.com/products');
     if (response.status === 200) {
       let data = await response.json();
